@@ -7,7 +7,7 @@ Gamer is a web app to view and favorite video games.
 - Laravel
 - From Laracasts tutorial with custom added features.
 
-## Why I built Gamer
+## Why I'm building Gamer
 
-I wanted to feature some of my abilities as a web developer, and get to know the Laravel 7 framework better. 
-I also wanted to add to my public GitHub profile some work so that future employers have an idea of what I can do.
+I want to feature some of my abilities as a web developer, and get to know the Laravel 7 framework better. 
+I also want to add to my public GitHub profile some work so that future employers have an idea of what I can do.
