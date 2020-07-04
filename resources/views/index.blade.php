@@ -5,35 +5,32 @@
         <h2 class="text-blue-500 uppercase tracking-wide font-semibold">
             Popular Games
         </h2>
-        <div class="popular-games overflow-hidden text-sm grid grid-cols-2  lg:grid-cols-5 xl:grid-cols-6 gap-12 border-b border-gray-800 pb-16">
-            <div class="game mt-8">
-                <div class="relative inline-block">
-                    <a href="">
-                        <img src="/images/ff7.jpg" alt="game cover"
-                             class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div style="right:-20px; bottom: -20px"
-                         class="absolute bottom-0 right-0 w-16 h-16 bg-gray-800 rounded-full">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">80%</div>
+        <div
+            class="popular-games overflow-hidden text-sm grid grid-cols-2  lg:grid-cols-5 gap-12 border-b border-gray-800 pb-16">
+            @foreach($popularGames as $game)
+                <div class="game mt-8">
+                    <div class="relative inline-block">
+                        <a href="">
+                            <img src="{{ Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']) }}"
+                                 alt="game cover"
+                                 class="hover:opacity-75 w-full transition ease-in-out duration-150">
+                        </a>
+                        <div style="right:-20px; bottom: -20px"
+                             class="absolute bottom-0 right-0 w-16 h-16 bg-gray-800 rounded-full">
+                            <div class="font-semibold text-xs flex justify-center items-center h-full">80%</div>
+                        </div>
                     </div>
+                    <a href=""
+                       class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">{{ $game['name'] }}</a>
+                    <p class="text-gray-400 mt-1">
+                        @foreach($game['platforms'] as $platform)
+                            @if(array_key_exists('abbreviation', $platform))
+                            {{ $platform['abbreviation'] }},
+                            @endif
+                        @endforeach
+                    </p>
                 </div>
-                <a href="" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">Game Name</a>
-                <p class="text-gray-400 mt-1">Playstation 4</p>
-            </div>
-            <div class="game mt-8">
-                <div class="relative inline-block">
-                    <a href="">
-                        <img src="/images/ff7.jpg" alt="game cover"
-                             class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div style="right:-20px; bottom: -20px"
-                         class="absolute bottom-0 right-0 w-16 h-16 bg-gray-800 rounded-full">
-                        <div class="font-semibold text-xs flex justify-center items-center h-full">80%</div>
-                    </div>
-                </div>
-                <a href="" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">Game Name</a>
-                <p class="text-gray-400 mt-1">Playstation 4</p>
-            </div>
+            @endforeach
         </div>
         <div class="lg:flex my-10">
             <div class="recently-reviewed lg:w-3/4 lg:mr-32">
@@ -51,9 +48,15 @@
                             </div>
                         </div>
                         <div class="md:ml-12">
-                            <a href="" class="block text-lg font-semiboindex.blade.phpld leading-tight hover:text-gray-400 mt-4">Game Name</a>
+                            <a href=""
+                               class="block text-lg font-semiboindex.blade.phpld leading-tight hover:text-gray-400 mt-4">Game
+                                Name</a>
                             <p class="text-gray-400 mt-1">Playstation 4</p>
-                            <p class="mt-6 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi eligendi explicabo nisi, nostrum odit officia qui quia reprehenderit totam ut voluptate! Accusamus amet animi deserunt dolorem ea eaque earum eos esse et eveniet excepturi, exercitationem illo ipsam iusto minus numquam odio officia quaerat quia quod repudiandae unde vero, vitae!
+                            <p class="mt-6 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Architecto commodi eligendi explicabo nisi, nostrum odit officia qui quia reprehenderit
+                                totam ut voluptate! Accusamus amet animi deserunt dolorem ea eaque earum eos esse et
+                                eveniet excepturi, exercitationem illo ipsam iusto minus numquam odio officia quaerat
+                                quia quod repudiandae unde vero, vitae!
                             </p>
                         </div>
                     </div>
