@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'GameController@index');
-Route::get('/games/{game}', 'GameController@show');
+Route::get('/show', 'GameController@show');
 
 Auth::routes();
 

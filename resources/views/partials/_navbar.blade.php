@@ -37,7 +37,7 @@
 
                     <div class="relative">
                         <input type="text"
-                               class="bg-gray-800 pl-8 text-sm focus:outline-none focus:shadow-outline w-64 rounded-full px-3 py-1"
+                               class="bg-gray-800 pl-8 text-sm focus:outline-none focus:shadow-outline md:w-64 rounded-full px-3 py-1"
                                placeholder="Search...">
                         <div class="absolute top-0 flex items-center h-full ml-2">
                             <svg id="Layer_1" class="fill-current text-gray-400 w-4" enable-background="new 0 0 128 128"
