@@ -11,8 +11,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/main.css">
+
 </head>
 <body class="bg-gray-900 text-white">
+<div id="app">
     @include('.partials._navbar')
 
     <main class="py-8">
@@ -20,5 +22,8 @@
     </main>
 
     @include('.partials._footer')
+</div>
+
+<script src="/js/app.js"></script>
 </body>
 </html>
