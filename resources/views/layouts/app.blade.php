@@ -11,7 +11,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/main.css">
-
+    <livewire:styles>
 </head>
 <body class="bg-gray-900 text-white">
 <div id="app">
@@ -25,5 +25,6 @@
 </div>
 
 <script src="/js/app.js"></script>
+<livewire:scripts>
 </body>
 </html>
