@@ -11,8 +11,22 @@
             </div>
         </div>
         @empty
-        <div>
-            Loading...
-        </div>
+        @foreach(range(1,3) as $game)
+            <div class="game flex align-content-center">
+                <div class="w-1/4">
+                    <div class="bg-gray-800 w-full h-20">
+                    </div>
+                </div>
+                <div class="ml-4 w-3/4">
+                    <div
+                        class="block text-base rounded w-full leading-tight text-transparent text-lg bg-gray-800 mt-4">
+                        Title
+                    </div>
+                    <p class="text-transparent inline-block bg-gray-700 rounded mt-2">
+                        PS4, PC, Switch
+                    </p>
+                </div>
+            </div>
+        @endforeach
     @endforelse
 </div>

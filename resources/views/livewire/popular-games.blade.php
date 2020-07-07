@@ -1,5 +1,5 @@
 <div wire:init="loadPopularGames"
-    class="popular-games overflow-hidden text-sm grid grid-cols-2  lg:grid-cols-5 gap-12 border-b border-gray-800 pb-16">
+     class="popular-games overflow-hidden text-sm grid grid-cols-2  lg:grid-cols-5 gap-12 border-b border-gray-800 pb-16">
     @forelse($popularGames as $game)
         <div class="game mt-8">
             <div class="relative inline-block">
@@ -26,9 +26,21 @@
                 @endforeach
             </p>
         </div>
-        @empty
-        <div>
-            Loading...
-        </div>
+    @empty
+        @foreach(range(1,10) as $game)
+            <div class="game mt-8">
+                <div>
+                    <div class="bg-gray-800 w-full h-56">
+                    </div>
+                </div>
+                <div
+                    class="block text-base rounded font-semibold leading-tight text-transparent text-lg bg-gray-700 mt-4">
+                    Title
+                </div>
+                <p class="text-transparent inline-block bg-gray-700 rounded mt-2">
+                    PS4, PC, Switch
+                </p>
+            </div>
+        @endforeach
     @endforelse
 </div>

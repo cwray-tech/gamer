@@ -31,8 +31,22 @@
             </div>
         </div>
         @empty
-        <div>
-            Loading...
-        </div>
+        @foreach(range(1,3) as $game)
+            <div class="game bg-gray-800 rounded-lg md:flex p-6 shadow-md">
+                <div class="relative flex-none">
+                    <div class="bg-gray-700 w-48 h-56">
+                    </div>
+                </div>
+                <div class="md:ml-12">
+                    <div
+                        class="block text-base rounded w-full leading-tight text-transparent text-lg bg-gray-600 mt-4">
+                        Title will be here
+                    </div>
+                    <p class="text-transparent inline-block bg-gray-700 rounded mt-2">
+                        PS4, PC, Switch
+                    </p>
+                </div>
+            </div>
+        @endforeach
     @endforelse
 </div>
