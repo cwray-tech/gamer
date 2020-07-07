@@ -14,10 +14,10 @@ class RecentlyReleased extends Component
         $now = Carbon::now()->timestamp;
 
         $this->recentlyReleased = Http::withHeaders(config('services.idgb'))->withOptions([
-            'body' => "fields name, first_release_date, popularity, summary, platforms.abbreviation, rating, cover.url;
+            'body' => "fields name, slug, first_release_date, popularity, summary, platforms.abbreviation, rating, cover.url;
              where platforms = (48,49,138,6) & first_release_date < {$now};
              sort first_release_date desc;
-             limit 2;"
+             limit 3;"
         ])->get('https://api-v3.igdb.com/games/')->json();
     }
 

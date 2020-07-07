@@ -1,12 +1,12 @@
-<div wire:init="loadPopularGames"
-     class="popular-games overflow-hidden text-sm grid grid-cols-2  lg:grid-cols-5 gap-12 border-b border-gray-800 pb-16">
-    @forelse($popularGames as $game)
+<div wire:init="loadSimilarGames"
+     class="similar-games overflow-hidden text-sm grid grid-cols-2  md:grid-cols-3 lg:grid-cols-5  gap-12">
+    @forelse($similarGames as $game)
         <div class="game mt-8">
             <div class="relative inline-block">
-                <a href="{{ route('games.show', $game['slug']) }}">
+                <a href="">
                     <img src="{{ Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']) }}"
-                         alt="game cover"
-                         class="hover:opacity-75 w-full transition ease-in-out duration-150">
+                         alt="{{ $game['name'] }}"
+                         class="hover:opacity-75 transition ease-in-out duration-150">
                 </a>
                 @if(isset($game['rating']))
                     <div style="right:-20px; bottom: -20px"
@@ -26,6 +26,7 @@
                 @endforeach
             </p>
         </div>
+
     @empty
         @foreach(range(1,10) as $game)
             <div class="game mt-8">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
+
 class GameController extends Controller
 {
     public function index()
@@ -9,8 +11,15 @@ class GameController extends Controller
         return view('.index');
     }
 
-    public function show()
+    public function show($slug)
     {
-        return view('.show');
+        $game = Http::withHeaders(config('services.idgb'))
+            ->withOptions([
+            'body' => "fields *,screenshots.url, cover.url, platforms.abbreviation, genres.name, videos, involved_companies.company.name;
+            where slug=\"{$slug}\";",
+        ])->get('https://api-v3.igdb.com/games/')->json();
+
+        abort_if(!$game, 404);
+        return view('.show', ['game' => $game[0]]);
     }
 }

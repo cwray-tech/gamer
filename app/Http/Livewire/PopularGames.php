@@ -17,7 +17,7 @@ class PopularGames extends Component
         $now = Carbon::now()->timestamp;
         $this->popularGames = Cache::remember('popular-games', 7, function () use ($before, $now) {
             return Http::withHeaders(config('services.idgb'))->withOptions([
-                'body' => "fields name, first_release_date, popularity, platforms.abbreviation, rating, cover.url;
+                'body' => "fields name, slug, first_release_date, popularity, platforms.abbreviation, rating, cover.url;
             where platforms = (48,49,138,6)
             & (first_release_date >= {$before}
             & first_release_date < {$now});

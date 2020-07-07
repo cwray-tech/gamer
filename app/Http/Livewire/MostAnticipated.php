@@ -16,12 +16,12 @@ class MostAnticipated extends Component
         $fourMonthsFromNow = Carbon::now()->addMonths(4)->timestamp;
 
         $this->mostAnticipated = Http::withHeaders(config('services.idgb'))->withOptions([
-            'body' => "fields name, first_release_date, popularity, summary, platforms.abbreviation, rating, cover.url;
+            'body' => "fields name, slug, first_release_date, popularity, summary, platforms.abbreviation, rating, cover.url;
              where platforms = (48,49,138,6)
              & first_release_date > {$now}
              & first_release_date < {$fourMonthsFromNow};
              sort popularity desc;
-             limit 2;"
+             limit 4;"
         ])->get('https://api-v3.igdb.com/games/')->json();
     }
     public function render()

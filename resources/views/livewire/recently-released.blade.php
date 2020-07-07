@@ -2,7 +2,7 @@
     @forelse($recentlyReleased as $game)
         <div class="game bg-gray-800 rounded-lg md:flex p-6 shadow-md">
             <div class="relative flex-none">
-                <a href="">
+                <a href="{{ route('games.show', $game['slug']) }}">
                     <img src="{{ Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']) }}"
                          alt="game cover"
                          class="md:w-48 w-full hover:opacity-75 transition ease-in-out duration-150">
@@ -16,7 +16,7 @@
                 @endif
             </div>
             <div class="md:ml-12">
-                <a href=""
+                <a href="{{ route('games.show', $game['slug']) }}"
                    class="block text-lg font-semiboindex.blade.phpld leading-tight hover:text-gray-400 mt-4">{{ $game['name']}}</a>
                 <p class="text-gray-400 mt-1">
                     @foreach($game['platforms'] as $platform)
